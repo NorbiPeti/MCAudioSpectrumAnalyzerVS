@@ -37,7 +37,7 @@ namespace MCAudioSpectrumAnalyzer
         private UdpClient client = new UdpClient(AddressFamily.InterNetwork);
         private void SetBar(byte index, byte data)
         {
-            byte value = (byte)((((double)data) / 255) * 80);
+            //byte value = (byte)((((double)data) / 255) * 80);
             client.Send(new byte[2] { (byte)(index + 1), data }, 2, new IPEndPoint(IPAddress.Loopback, 5896));
         }
 
