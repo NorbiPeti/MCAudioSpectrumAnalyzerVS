@@ -34,9 +34,9 @@ namespace MCAudioSpectrumAnalyzer
             _hanctr = 0;
             _t = new Timer();
             _t.Tick += _t_Tick;
-            //_t.Interval = 25; //40hz refresh rate
+            _t.Interval = 25; //40hz refresh rate
             //_t.Interval = 50; //20 Hz
-            _t.Interval = 400;
+            //_t.Interval = 400;
             _t.Enabled = false;
             _l = left;
             _r = right;

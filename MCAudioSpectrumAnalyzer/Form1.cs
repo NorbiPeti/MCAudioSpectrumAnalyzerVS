@@ -27,12 +27,26 @@ namespace MCAudioSpectrumAnalyzer
         public void Set(List<byte> data)
         {
             if (data.Count < 16) return;
-            for (int i = 0; i < data.Count / 2; i++)
+            //for (int i = 0; i < data.Count / 2; i++)
+            /*for (int i = 0; i < 1; i++)
                 if (data[i] == 0)
                     SetBar((byte)i, 1);
                 else
-                    SetBar((byte)i, (byte)(data[i] * 2));
+                    SetBar((byte)i, data[i * 2]);*/
+            byte i = 10;
+            if (data[i] == 0)
+                SetBar(0, 1);
+            else
+                SetBar(0, data[i]);
         }
+
+        /*
+        128.234 56 -622.622 -0.9 -21.1
+
+        Removed unnecessary block clearups
+        Made it catch up to 25 Hz
+        Fixed snow layer data value setting
+        */
 
         private UdpClient client = new UdpClient(AddressFamily.InterNetwork);
         private void SetBar(byte index, byte data)
