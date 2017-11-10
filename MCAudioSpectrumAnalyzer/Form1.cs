@@ -21,13 +21,13 @@ namespace MCAudioSpectrumAnalyzer
         {
             InitializeComponent();
             Instance = this;
-            Analyzer = new Analyzer(new ProgressBar(), new ProgressBar(), new ComboBox());
+            Analyzer = new Analyzer(new ProgressBar(), new ProgressBar(), devicelist);
         }
 
         public void Set(List<byte> data)
         {
             if (data.Count < 16) return;
-            client.Send(data.ToArray(), data.Count, new IPEndPoint(IPAddress.Loopback, 5896)); //TODO: Make visualiser source selectable
+            client.Send(data.ToArray(), data.Count, new IPEndPoint(IPAddress.Loopback, 5896));
         }
         
         private UdpClient client = new UdpClient(AddressFamily.InterNetwork);
